@@ -10,4 +10,8 @@ Hier verzamel ik snel terugvindbare links naar scripts, tooling en GitHub-reposi
 - [Rootnotes repository](https://github.com/scns/rootnotes.nl)
 - [GitHub profiel](https://github.com/scns)
 
-Voeg hier gerust meer links toe naarmate er nieuwe scripts of tools bij komen.
+## Security Tooling
+
+### CIS scan
+
+- [CIS365-Auditor](https://github.com/scns/CIS365-Auditor)
