@@ -1,4 +1,4 @@
----
-title: "Blog"
-description: "Technical insights. Practical experience."
----
++++
+title = "Blog"
+description = "Technical insights. Practical experience."
++++

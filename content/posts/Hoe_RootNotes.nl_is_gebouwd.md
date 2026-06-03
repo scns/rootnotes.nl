@@ -1,13 +1,10 @@
----
-
-title: "Hoe RootNotes.nl is gebouwd"
-date: 2026-06-03
-description: "Een kijkje achter de schermen van RootNotes.nl. Van Hugo en GitHub Pages tot automatische deployments en reacties via GitHub Discussions."
-tags: ["hugo", "github", "github-pages", "giscus", "opensource"]
-categories: ["Techniek"]
-------------------------
-
-# Hoe RootNotes.nl is gebouwd
++++
+title = "Hoe RootNotes.nl is gebouwd"
+date = 2026-06-03
+description = "Een kijkje achter de schermen van RootNotes.nl. Van Hugo en GitHub Pages tot automatische deployments en reacties via GitHub Discussions."
+tags = ["hugo", "github", "github-pages", "giscus", "opensource"]
+categories = ["Techniek"]
++++
 
 Wanneer je een website bezoekt, zie je meestal alleen het eindresultaat. Een homepage, een paar artikelen en misschien een contactpagina. Maar achter iedere website zit een verzameling keuzes, technieken en soms ook een gezonde dosis experimenteren.
 
