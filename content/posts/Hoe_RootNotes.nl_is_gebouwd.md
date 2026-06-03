@@ -1,8 +1,8 @@
 +++
 title = "Hoe RootNotes.nl is gebouwd"
 date = 2026-06-03
-description = "Een kijkje achter de schermen van RootNotes.nl. Van Hugo en GitHub Pages tot automatische deployments en reacties via GitHub Discussions."
-tags = ["hugo", "github", "github-pages", "giscus", "opensource"]
+description = "Een kijkje achter de schermen van RootNotes.nl. Van Hugo en Cloudflare Pages tot automatische deployments en reacties via GitHub Discussions."
+tags = ["hugo", "github", "cloudflare-pages", "giscus", "opensource"]
 categories = ["Techniek"]
 +++
 
@@ -57,11 +57,11 @@ Dat betekent dat:
 
 Zelfs deze blogpost begint uiteindelijk als een commit in Git. Iedere wijziging wordt opgeslagen zodat precies terug te zien is wat er veranderd is en wanneer.
 
-## Automatisch publiceren met GitHub Actions
+## Automatisch publiceren met Cloudflare Pages
 
 Het leuke aan moderne tooling is dat publiceren bijna volledig automatisch kan.
 
-Zodra ik wijzigingen naar de `main`-branch push, start GitHub Actions automatisch een workflow. Deze workflow bouwt de website met Hugo en publiceert de gegenereerde bestanden naar GitHub Pages.
+Zodra een wijziging in `main` terechtkomt, pakt Cloudflare Pages automatisch de nieuwste commit op. Daarna bouwt Cloudflare de site met Hugo en publiceert de gegenereerde bestanden.
 
 In de praktijk komt het neer op:
 
@@ -71,23 +71,23 @@ git commit -m "Nieuw artikel"
 git push
 ```
 
-Daarna regelt GitHub de rest.
+Daarna regelt Cloudflare de rest.
 
 Geen FTP-clients, geen handmatige uploads en geen ingewikkelde deploymentprocedures.
 
-## GitHub Pages als hostingplatform
+## Cloudflare Pages als hostingplatform
 
-Voor de hosting wordt gebruikgemaakt van GitHub Pages.
+Voor de hosting wordt gebruikgemaakt van Cloudflare Pages.
 
-GitHub Pages is oorspronkelijk bedoeld voor documentatie- en projectwebsites, maar werkt ook uitstekend voor persoonlijke blogs. Hugo genereert statische bestanden en GitHub Pages serveert deze rechtstreeks aan bezoekers.
+Cloudflare Pages is een platform voor statische websites en werkt uitstekend voor persoonlijke blogs. Hugo genereert statische bestanden en Cloudflare serveert die vervolgens wereldwijd via het edge-netwerk.
 
-Daarnaast is een eigen domeinnaam gekoppeld via een CNAME-configuratie waardoor de site bereikbaar is via:
+Daarnaast is een eigen domeinnaam gekoppeld in Cloudflare, waardoor de site bereikbaar is via:
 
 ```
 https://rootnotes.nl
 ```
 
-Dat zorgt ervoor dat bezoekers niets merken van de onderliggende GitHub-infrastructuur.
+Dat zorgt ervoor dat bezoekers niets merken van de onderliggende hosting-infrastructuur.
 
 ## Een eigen Hugo-thema
 
@@ -141,7 +141,7 @@ Voor mij draait een blog om inhoud.
 
 Ik wil schrijven, publiceren en weer verder kunnen. Niet bezig zijn met databases repareren, plugins updaten of serverproblemen oplossen.
 
-Met Hugo, GitHub Pages, GitHub Actions en Giscus bestaat de volledige infrastructuur uit een handvol overzichtelijke componenten die goed samenwerken.
+Met Hugo, Cloudflare Pages, GitHub en Giscus bestaat de volledige infrastructuur uit een handvol overzichtelijke componenten die goed samenwerken.
 
 Het resultaat is een snelle website, minimale onderhoudslast en volledige controle over de inhoud.
 
