@@ -47,6 +47,9 @@
           },
           {
             "context": "CodeRabbit"
+          },
+          {
+            "context": "copilot-pull-request-reviewer"
           }
         ]
       }
