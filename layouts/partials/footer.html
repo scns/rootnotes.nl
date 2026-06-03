@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="copyright">
+      {{ with $.Site.Params.footer_text }}
+        <span>{{ . | safeHTML }}</span>
+      {{ else }}
+        {{ if $.Site.Copyright }}
+          <span>{{ $.Site.Copyright | safeHTML }}</span>
+        {{ else }}
+          <span>© {{ now.Year }} {{ $.Site.Params.author | default $.Site.Title }}</span>
+        {{ end }}
+      {{ end }}
+      {{ if ne $.Site.Params.footer_show_theme_credit false }}
+        <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank" rel="noopener noreferrer">Theme</a> made by <a href="https://github.com/panr" target="_blank" rel="noopener noreferrer">panr</a></span>
+      {{ end }}
+    </div>
+  </div>
+</footer>
+
+{{ $menu := resources.Get "js/menu.js" | js.Build }}
+{{ $cp := resources.Get "js/code.js" | js.Build }}
+{{ $bundle := slice $menu $cp | resources.Concat "bundle.js" | resources.Minify }}
+<script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
+
+{{ partial "extended_footer.html" . }}

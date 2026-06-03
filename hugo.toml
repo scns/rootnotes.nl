@@ -18,6 +18,8 @@ enableGitInfo = true
 [params]
   description = "Technical insights. Practical experience."
   author = "Maarten"
+  footer_text = "© 2026 Rootnotes.nl"
+  footer_show_theme_credit = false
   contentTypeName = 'posts'
   themeColor = 'orange'
   showMenuItems = 3
