@@ -1,20 +1,30 @@
 baseURL = 'https://rootnotes.nl/'
 defaultContentLanguage = 'nl'
 title = 'Rootnotes'
-theme = 'rootnotes'
+theme = 'terminal'
 paginate = 10
 enableRobotsTXT = true
 enableGitInfo = true
 
 [languages]
   [languages.nl]
-    languageName = 'Nederlands'
+    label = 'Nederlands'
     weight = 1
     locale = 'nl-NL'
+    [languages.nl.params.logo]
+      logoText = 'rootnotes.nl'
+      logoHomeLink = '/'
 
 [params]
   description = "Technical insights. Practical experience."
   author = "Maarten"
+  contentTypeName = 'posts'
+  themeColor = 'orange'
+  showMenuItems = 3
+  fullWidthTheme = false
+  centerTheme = true
+  showLastUpdated = true
+  readingTime = true
 
   # ──────────────────────────────────────────────────────────────────
   # Giscus reacties (via GitHub Discussions)
@@ -36,11 +46,11 @@ enableGitInfo = true
     weight = 1
   [[menu.main]]
     name   = "Blog"
-    url    = "/posts/"
+    url    = "/posts"
     weight = 2
   [[menu.main]]
     name   = "Over"
-    url    = "/over/"
+    url    = "/over"
     weight = 3
 
 [markup]
