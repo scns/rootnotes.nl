@@ -6,7 +6,7 @@ tags: ["introductie", "welkom", "eerste-post"]
 categories: ["Algemeen"]
 ---
 
-# Welkom bij RootNotes
+## Welkom bij RootNotes
 
 Welkom op **RootNotes.nl**.
 
