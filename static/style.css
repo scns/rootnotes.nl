@@ -1,0 +1,54 @@
+:root {
+  --rootnotes-footer-accent: #d1a93a;
+  --rootnotes-footer-accent-hover: #e1bc52;
+  --rootnotes-footer-button-bg: rgba(209, 169, 58, 0.12);
+  --rootnotes-footer-button-border: rgba(209, 169, 58, 0.45);
+}
+
+.buymeacoffee {
+  margin-top: 1rem;
+}
+
+.buymeacoffee-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rootnotes-footer-button-border);
+  border-radius: 999px;
+  background: var(--rootnotes-footer-button-bg);
+  color: var(--rootnotes-footer-accent);
+  text-decoration: none;
+  transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.buymeacoffee-button:hover {
+  transform: translateY(-1px);
+  border-color: var(--rootnotes-footer-accent-hover);
+  background: rgba(209, 169, 58, 0.18);
+  color: var(--rootnotes-footer-accent-hover);
+}
+
+.buymeacoffee-button:focus-visible {
+  outline: 2px solid var(--rootnotes-footer-accent-hover);
+  outline-offset: 3px;
+}
+
+.buymeacoffee-button__icon {
+  display: inline-flex;
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 1.15rem;
+}
+
+.buymeacoffee-button__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.buymeacoffee-button__text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
