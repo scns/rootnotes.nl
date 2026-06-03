@@ -160,7 +160,7 @@
   align-items: baseline;
   gap: 0.45rem;
   text-decoration: none;
-  border: 1px solid rgba(238, 195, 94, 0.45);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
   padding: 0.28rem 0.52rem;
   line-height: 1.1;
   transition: transform 100ms ease, border-color 100ms ease, background-color 100ms ease;
@@ -168,8 +168,8 @@
 
 .tag-cloud-item:hover {
   transform: translateY(-1px);
-  border-color: rgba(238, 195, 94, 0.9);
-  background: rgba(238, 195, 94, 0.08);
+  border-color: color-mix(in srgb, var(--accent) 90%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .tag-cloud-item:focus-visible {
