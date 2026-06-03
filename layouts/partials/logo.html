@@ -7,7 +7,7 @@
         alt="{{ $.Site.Title }}"
         width="240"
         height="240"
-        style="width:auto;height:auto;max-height:56px;max-width:min(240px,42vw);border:0;padding:0;border-radius:0;"
+        style="width:auto;height:auto;max-height:clamp(64px,8vw,92px);max-width:min(300px,56vw);border:0;padding:0;border-radius:0;"
       >
     {{ else }}
       {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }}
