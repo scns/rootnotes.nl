@@ -5,7 +5,7 @@ date: 2026-06-03
 description: "De eerste blogpost op RootNotes.nl. Een korte introductie over deze website, de onderwerpen die je hier kunt verwachten en waarom ik ben begonnen met schrijven."
 tags: ["introductie", "welkom", "eerste-post"]
 categories: ["Algemeen"]
-------------------------
+---
 
 # Welkom bij RootNotes
 
