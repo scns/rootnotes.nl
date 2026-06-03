@@ -4,6 +4,8 @@ on:
   pull_request_target:
     branches: ["main"]
     types: [closed]
+  schedule:
+    - cron: "0 9 * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
