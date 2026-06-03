@@ -55,7 +55,8 @@
 
 .side-image {
   float: left;
-  width: min(100%, var(--side-image-width, 240px));
+  width: var(--side-image-width, 240px);
+  max-width: 44%;
   margin: 0.35rem 1rem 0.8rem 0;
 }
 
@@ -67,7 +68,10 @@
 .side-image img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
+  border: 0 !important;
+  padding: 0 !important;
 }
 
 .side-image figcaption {
@@ -87,6 +91,7 @@
   .side-image,
   .side-image--right {
     float: none;
+    max-width: 100%;
     width: min(100%, var(--side-image-width, 240px));
     margin: 0 auto 1rem;
   }
