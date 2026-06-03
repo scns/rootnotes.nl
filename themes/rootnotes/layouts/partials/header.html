@@ -1,0 +1,14 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a href="{{ "/" | relURL }}" class="site-title">{{ .Site.Title }}</a>
+    <nav aria-label="Hoofdnavigatie">
+      <ul class="site-nav">
+        {{- range .Site.Menus.main }}
+        <li>
+          <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+  </div>
+</header>

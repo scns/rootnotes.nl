@@ -1,0 +1,4 @@
+name = "rootnotes"
+license = "MIT"
+description = "Standaard thema voor rootnotes.nl"
+min_version = "0.120.0"

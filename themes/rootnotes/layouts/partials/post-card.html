@@ -1,0 +1,13 @@
+<a href="{{ .Permalink }}" class="post-card">
+  <div class="post-card-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02-01-2006" }}</time>
+    {{ if .ReadingTime }}<span>· {{ .ReadingTime }} min</span>{{ end }}
+  </div>
+  <h3>{{ .Title }}</h3>
+  {{ with .Summary }}<p>{{ . | plainify | truncate 140 }}</p>{{ end }}
+  {{ with .Params.tags }}
+  <div class="post-tags">
+    {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+  </div>
+  {{ end }}
+</a>

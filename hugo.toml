@@ -1,0 +1,49 @@
+baseURL = 'https://rootnotes.nl/'
+languageCode = 'nl'
+title = 'Rootnotes'
+theme = 'rootnotes'
+paginate = 10
+enableRobotsTXT = true
+enableGitInfo = true
+
+[params]
+  description = "Technical insights. Practical experience."
+  author = "Maarten"
+
+  # ──────────────────────────────────────────────────────────────────
+  # Giscus reacties (via GitHub Discussions)
+  # Stap 1: Schakel GitHub Discussions in op je repo (Settings → Features)
+  # Stap 2: Installeer de Giscus app: https://github.com/apps/giscus
+  # Stap 3: Ga naar https://giscus.app, selecteer je repo en kopieer
+  #         de waarden hieronder in.
+  # ──────────────────────────────────────────────────────────────────
+  [params.giscus]
+    repo        = "scns/rootnotes.nl"
+    repo_id     = "R_kgDOSvrheg"
+    category    = "Website"
+    category_id = "DIC_kwDOSvrhes4C-Zs7"
+
+[menu]
+  [[menu.main]]
+    name   = "Home"
+    url    = "/"
+    weight = 1
+  [[menu.main]]
+    name   = "Blog"
+    url    = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name   = "Over"
+    url    = "/over/"
+    weight = 3
+
+[markup]
+  [markup.highlight]
+    style   = "github"
+    lineNos = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[outputs]
+  home    = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]

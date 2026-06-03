@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>
+      © {{ now.Year }} {{ .Site.Params.author | default .Site.Title }}
+      &mdash;
+      gebouwd met <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+      &mdash;
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+    </p>
+  </div>
+</footer>

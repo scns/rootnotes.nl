@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="container">
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ $recent := first 6 $posts }}
+
+  <section class="hero">
+    <h1>{{ .Site.Params.hero_title | default "RootNotes.nl" }}</h1>
+    <p>{{ .Site.Params.description }}</p>
+  </section>
+
+  {{ if $recent }}
+  <div class="section-header">
+    <h2>Recente artikelen</h2>
+    <a href="{{ "/posts/" | relURL }}">Alle artikelen →</a>
+  </div>
+  <div class="posts-grid">
+    {{ range $recent }}
+    {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="empty-state">
+    <p>Nog geen artikelen gepubliceerd. Het eerste artikel komt eraan!</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
