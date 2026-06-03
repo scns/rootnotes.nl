@@ -1,16 +1,18 @@
 {
+  "id": 17213913,
   "name": "Protect main branch",
   "target": "branch",
+  "source_type": "Repository",
+  "source": "scns/rootnotes.nl",
   "enforcement": "active",
   "conditions": {
     "ref_name": {
+      "exclude": [],
       "include": [
         "~DEFAULT_BRANCH"
-      ],
-      "exclude": []
+      ]
     }
   },
-  "bypass_actors": [],
   "rules": [
     {
       "type": "deletion"
@@ -21,12 +23,17 @@
     {
       "type": "pull_request",
       "parameters": {
-        "required_approving_review_count": 1,
+        "required_approving_review_count": 0,
         "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
         "require_code_owner_review": false,
         "require_last_push_approval": false,
         "required_review_thread_resolution": true,
-        "review_on_push": true
+        "allowed_merge_methods": [
+          "merge",
+          "squash",
+          "rebase"
+        ]
       }
     },
     {
@@ -37,9 +44,20 @@
         "required_status_checks": [
           {
             "context": "build"
+          },
+          {
+            "context": "CodeRabbit"
           }
         ]
       }
+    },
+    {
+      "type": "copilot_code_review",
+      "parameters": {
+        "review_on_push": true,
+        "review_draft_pull_requests": false
+      }
     }
-  ]
+  ],
+  "bypass_actors": []
 }
