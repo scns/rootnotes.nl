@@ -15,13 +15,14 @@
       {{ end }}
     </div>
     {{ with $.Site.Params.buymeacoffee_username }}
-      <div class="buymeacoffee" style="margin-top: 1rem;">
-        <a href="https://www.buymeacoffee.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee">
-          <img
-            src="{{ $.Site.Params.buymeacoffee_image | default "https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" }}"
-            alt="{{ $.Site.Params.buymeacoffee_alt | default "Buy Me A Coffee" }}"
-            style="height: 48px; width: 174px;"
-          >
+      <div class="buymeacoffee">
+        <a class="buymeacoffee-button" href="https://www.buymeacoffee.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee">
+          <span class="buymeacoffee-button__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false">
+              <path d="M7 4h10a1 1 0 0 1 1 1v1h1a2 2 0 0 1 2 2v2a4 4 0 0 1-4 4h-1.1A5.9 5.9 0 0 1 11 19H8a2 2 0 0 1-2-2V6a2 2 0 0 1 1-2Zm11 4V8a2 2 0 0 1-2 2h-1V8h3ZM6 18h5a4 4 0 0 0 4-4V6H7v10a2 2 0 0 0 2 2h-3Z"/>
+            </svg>
+          </span>
+          <span class="buymeacoffee-button__text">Buy me a coffee</span>
         </a>
       </div>
     {{ end }}
