@@ -1,0 +1,13 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $caption := .Get "caption" -}}
+{{- $align := .Get "align" | default "left" -}}
+{{- $width := .Get "width" | default "240px" -}}
+{{- $isRemote := or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+
+<figure class="side-image side-image--{{ if eq $align "right" }}right{{ else }}left{{ end }}" style="--side-image-width: {{ $width }};">
+  <img src="{{ if $isRemote }}{{ $src }}{{ else }}{{ $src | relURL }}{{ end }}" alt="{{ $alt }}" loading="lazy">
+  {{ with $caption }}
+    <figcaption>{{ . }}</figcaption>
+  {{ end }}
+</figure>

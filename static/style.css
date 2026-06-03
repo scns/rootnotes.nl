@@ -52,3 +52,42 @@
   font-weight: 700;
   letter-spacing: 0.01em;
 }
+
+.side-image {
+  float: left;
+  width: min(100%, var(--side-image-width, 240px));
+  margin: 0.35rem 1rem 0.8rem 0;
+}
+
+.side-image--right {
+  float: right;
+  margin: 0.35rem 0 0.8rem 1rem;
+}
+
+.side-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.side-image figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.post-content::after,
+.index-content::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .side-image,
+  .side-image--right {
+    float: none;
+    width: min(100%, var(--side-image-width, 240px));
+    margin: 0 auto 1rem;
+  }
+}

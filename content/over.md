@@ -3,7 +3,9 @@ title: "Over"
 description: "Wie schrijft hier en waarom?"
 ---
 
-## Hallo!
+## Hallo
+
+{{< sideimage src="/images/me.jpg" alt="Maarten" align="right" width="260px" >}}
 
 Ik ben **Maarten**. Deze blog gebruik ik als een notitieboek dat openbaar is: dingen die ik leer, dingen die ik wil onthouden, en af en toe iets dat gewoon de moeite waard is om te delen.
 
