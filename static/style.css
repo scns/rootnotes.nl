@@ -53,6 +53,19 @@
   letter-spacing: 0.01em;
 }
 
+.logo--image {
+  background: transparent;
+  padding: 0;
+}
+
+.site-logo-image {
+  display: block;
+  height: 40px;
+  width: auto;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
 .side-image {
   float: left;
   width: var(--side-image-width, 240px);

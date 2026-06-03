@@ -1,0 +1,13 @@
+<a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{ else }}{{ $.Site.BaseURL }}{{ end }}">
+  <div class="logo{{ if $.Site.Params.Logo.logoImage }} logo--image{{ end }}">
+    {{ if $.Site.Params.Logo.logoImage }}
+      <img
+        class="site-logo-image"
+        src="{{ $.Site.Params.Logo.logoImage | relURL }}"
+        alt="{{ $.Site.Title }}"
+      >
+    {{ else }}
+      {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }}
+    {{ end }}
+  </div>
+</a>

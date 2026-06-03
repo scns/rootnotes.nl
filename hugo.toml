@@ -12,6 +12,7 @@ enableGitInfo = true
     weight = 1
     locale = 'nl-NL'
     [languages.nl.params.logo]
+      logoImage = '/images/logo.png'
       logoText = 'rootnotes.nl'
       logoHomeLink = '/'
 
