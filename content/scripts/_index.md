@@ -7,7 +7,7 @@ Hier verzamel ik snel terugvindbare links naar scripts, tooling en GitHub-reposi
 
 ## Handige links
 
-- [Rootnotes repository](https://github.com/scns/rootnotes.nl)
+- [RootNotes repository](https://github.com/scns/rootnotes.nl)
 - [GitHub profiel](https://github.com/scns)
 
 ## Security Tooling

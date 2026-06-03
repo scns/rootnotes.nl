@@ -1,4 +1,4 @@
-# Rootnotes.nl
+# RootNotes.nl
 
 Persoonlijke blog gebouwd met [Hugo](https://gohugo.io/) en gepubliceerd via GitHub Pages.
 

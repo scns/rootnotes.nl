@@ -1,6 +1,6 @@
 baseURL = 'https://rootnotes.nl/'
 defaultContentLanguage = 'nl'
-title = 'Rootnotes'
+title = 'RootNotes'
 theme = 'terminal'
 paginate = 10
 enableRobotsTXT = true
@@ -19,7 +19,7 @@ enableGitInfo = true
 [params]
   description = "Technical insights. Practical experience."
   author = "Maarten"
-  footer_text = "© 2026 Rootnotes.nl"
+  footer_text = "© 2026 RootNotes.nl"
   footer_show_theme_credit = false
   buymeacoffee_username = "maartenschmeitz"
   buymeacoffee_image = "https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"

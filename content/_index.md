@@ -1,4 +1,4 @@
 ---
-title: "Rootnotes"
+title: "RootNotes"
 description: "Technical insights. Practical experience."
 ---

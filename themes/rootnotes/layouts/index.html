@@ -4,7 +4,7 @@
   {{ $recent := first 6 $posts }}
 
   <section class="hero">
-    <img src="{{ "images/logo.png" | relURL }}" alt="Rootnotes logo" class="hero-logo">
+    <img src="{{ "images/logo.png" | relURL }}" alt="RootNotes logo" class="hero-logo">
     <h1>{{ .Site.Params.hero_title | default "RootNotes.nl" }}</h1>
     <p>{{ .Site.Params.description }}</p>
   </section>

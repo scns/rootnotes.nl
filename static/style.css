@@ -60,10 +60,29 @@
 
 .site-logo-image {
   display: block;
-  height: 40px;
+  height: auto;
   width: auto;
+  max-height: 56px;
+  max-width: 240px;
   border: 0 !important;
   padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.header__logo .logo--image {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.header__logo img.site-logo-image {
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-height: 56px !important;
+  max-width: min(240px, 42vw) !important;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 
 .side-image {
