@@ -6,9 +6,6 @@ tags = ["mrtn.blog"]
 categories = ["Oudzeer"]
 +++
 
-
-## Waar is mrtn.blog gebleven?
-
 Misschien is het je al opgevallen: **mrtn.blog bestaat niet meer**.
 
 Een tijdje geleden heb ik daar met veel plezier geblogd over van alles en nog wat binnen de IT-wereld. Van technische ontdekkingen en experimenten tot ervaringen uit de praktijk. Het was een leuke plek om kennis, ideeën en soms ook frustraties van me af te schrijven.
