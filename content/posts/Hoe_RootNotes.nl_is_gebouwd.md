@@ -6,8 +6,6 @@ tags = ["hugo", "github", "github-pages", "giscus", "opensource"]
 categories = ["Techniek"]
 +++
 
-## Hoe RootNotes.nl is gebouwd
-
 Wanneer je een website bezoekt, zie je meestal alleen het eindresultaat. Een homepage, een paar artikelen en misschien een contactpagina. Maar achter iedere website zit een verzameling keuzes, technieken en soms ook een gezonde dosis experimenteren.
 
 Omdat dit de eerste technische blogpost op RootNotes is, leek het me leuk om direct onder de motorkap te kijken. Hoe draait deze website eigenlijk?
