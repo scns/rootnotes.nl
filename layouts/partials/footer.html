@@ -14,6 +14,17 @@
         <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank" rel="noopener noreferrer">Theme</a> made by <a href="https://github.com/panr" target="_blank" rel="noopener noreferrer">panr</a></span>
       {{ end }}
     </div>
+    {{ with $.Site.Params.buymeacoffee_username }}
+      <div class="buymeacoffee" style="margin-top: 1rem;">
+        <a href="https://www.buymeacoffee.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee">
+          <img
+            src="{{ $.Site.Params.buymeacoffee_image | default "https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" }}"
+            alt="{{ $.Site.Params.buymeacoffee_alt | default "Buy Me A Coffee" }}"
+            style="height: 48px; width: 174px;"
+          >
+        </a>
+      </div>
+    {{ end }}
   </div>
 </footer>
 
