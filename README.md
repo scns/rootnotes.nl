@@ -1,6 +1,6 @@
 # RootNotes.nl
 
-Persoonlijke blog gebouwd met [Hugo](https://gohugo.io/) en gepubliceerd via GitHub Pages.
+Persoonlijke blog gebouwd met [Hugo](https://gohugo.io/) en gepubliceerd via Cloudflare Pages.
 
 ---
 
@@ -25,24 +25,22 @@ hugo new posts/mijn-titel.md
 ```
 
 Het bestand wordt aangemaakt in `content/posts/`. Bewerk het en verwijder `draft: true`
-als je het wilt publiceren. Push naar `main` — GitHub Actions doet de rest.
+als je het wilt publiceren. Na merge naar `main` pakt Cloudflare Pages de wijziging automatisch op.
 
 ---
 
 ## Publiceren
 
-Elke push naar de `main`-branch triggert de GitHub Actions workflow in
-`.github/workflows/deploy.yml`. Die bouwt de site met Hugo en publiceert
-het resultaat naar GitHub Pages.
+Cloudflare Pages bouwt en publiceert automatisch op basis van de gekoppelde
+GitHub-repository.
 
-**Eerste keer instellen:**
+**Aanbevolen instellingen in Cloudflare Pages:**
 
-1. Ga in je repo naar **Settings → Pages**
-2. Zet *Source* op **GitHub Actions**
-3. Zorg dat je domein `rootnotes.nl` is ingesteld onder *Custom domain*
-4. Zet DNS bij je registrar:
-   - `A`-records naar de GitHub Pages IP's: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` `www` → `scns.github.io`
+1. Framework preset: **Hugo**
+2. Build command: `hugo --minify`
+3. Build output directory: `public`
+4. Productiebranch: `main`
+5. Custom domain: `rootnotes.nl` (en eventueel `www.rootnotes.nl`)
 
 ---
 
@@ -78,13 +76,13 @@ Push de wijziging — reacties zijn direct actief.
 
 ```
 rootnotes.nl/
-├── .github/workflows/deploy.yml   # GitHub Actions CI/CD
+├── .github/workflows/ci-hugo.yml  # Build-checks
+├── .github/workflows/link-check.yml
 ├── archetypes/posts.md            # Template voor nieuwe artikelen
 ├── content/
 │   ├── posts/                     # Blog artikelen (Markdown)
 │   └── over.md                    # Over-pagina
-├── static/
-│   └── CNAME                      # Custom domein
+├── static/                        # Statische assets
 ├── themes/rootnotes/              # Eigen thema
 │   ├── layouts/                   # HTML-templates
 │   └── static/css/style.css       # Stylesheet (dark/light mode)
