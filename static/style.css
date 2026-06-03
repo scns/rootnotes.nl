@@ -3,6 +3,7 @@
   --rootnotes-footer-accent-hover: #e1bc52;
   --rootnotes-footer-button-bg: rgba(209, 169, 58, 0.12);
   --rootnotes-footer-button-border: rgba(209, 169, 58, 0.45);
+  --rootnotes-header-logo-height: 104px;
 }
 
 .buymeacoffee {
@@ -60,9 +61,9 @@
 
 .site-logo-image {
   display: block;
-  height: auto;
+  height: var(--rootnotes-header-logo-height);
   width: auto;
-  max-height: clamp(64px, 8vw, 92px);
+  max-height: var(--rootnotes-header-logo-height);
   max-width: min(300px, 56vw);
   border: 0 !important;
   padding: 0 !important;
@@ -70,19 +71,37 @@
 }
 
 .header__logo .logo--image {
+  display: flex;
+  align-items: center;
+  height: var(--rootnotes-header-logo-height);
   background: transparent !important;
   padding: 0 !important;
+}
+
+.header__logo {
+  align-items: center;
+}
+
+.header__logo::after {
+  height: var(--rootnotes-header-logo-height);
+  align-self: center;
 }
 
 .header__logo img.site-logo-image {
   display: block;
   width: auto !important;
-  height: auto !important;
-  max-height: clamp(64px, 8vw, 92px) !important;
+  height: var(--rootnotes-header-logo-height) !important;
+  max-height: var(--rootnotes-header-logo-height) !important;
   max-width: min(300px, 56vw) !important;
   border: 0 !important;
   padding: 0 !important;
   border-radius: 0 !important;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --rootnotes-header-logo-height: 78px;
+  }
 }
 
 .side-image {
