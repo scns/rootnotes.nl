@@ -29,10 +29,10 @@
     "yarn": "^1.22.10"
   },
   "devDependencies": {
-    "browserslist": "^4.16.5",
+    "browserslist": "^4.28.2",
     "clipboard": "^2.0.4",
     "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "husky": "^9.1.7",
