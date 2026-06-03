@@ -1,4 +1,4 @@
-<a href="{{ .Permalink }}" class="post-card">
+<a href="{{ .RelPermalink }}" class="post-card">
   <div class="post-card-meta">
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02-01-2006" }}</time>
     {{ if .ReadingTime }}<span>· {{ .ReadingTime }} min</span>{{ end }}

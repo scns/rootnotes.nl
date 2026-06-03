@@ -97,6 +97,21 @@ main {
   gap: 2rem;
 }
 
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.site-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
 .site-title {
   font-size: 1.2rem;
   font-weight: 800;
@@ -128,6 +143,14 @@ main {
   padding: 4.5rem 0 3.5rem;
   text-align: center;
   margin-bottom: 2.5rem;
+}
+
+.hero-logo {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  margin: 0 auto 1.25rem;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, .12));
 }
 
 .hero h1 {
@@ -499,6 +522,20 @@ main {
 /* --- Responsive --------------------------------------------------- */
 @media (max-width: 640px) {
   html { font-size: 16px; }
+
+  .header-inner {
+    gap: 1rem;
+  }
+
+  .site-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero-logo {
+    width: 104px;
+    height: 104px;
+  }
 
   .post-nav {
     grid-template-columns: 1fr;

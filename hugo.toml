@@ -1,10 +1,16 @@
 baseURL = 'https://rootnotes.nl/'
-languageCode = 'nl'
+defaultContentLanguage = 'nl'
 title = 'Rootnotes'
 theme = 'rootnotes'
 paginate = 10
 enableRobotsTXT = true
 enableGitInfo = true
+
+[languages]
+  [languages.nl]
+    languageName = 'Nederlands'
+    weight = 1
+    locale = 'nl-NL'
 
 [params]
   description = "Technical insights. Practical experience."

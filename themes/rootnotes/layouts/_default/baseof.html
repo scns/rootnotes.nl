@@ -10,6 +10,7 @@
   {{- with .OutputFormats.Get "rss" }}
   <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
   {{- end }}
+  <link rel="icon" href="{{ "images/logo.png" | relURL }}" type="image/png">
   {{- if .IsPage }}
   <meta property="og:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ $.Site.Params.description }}{{ end }}">

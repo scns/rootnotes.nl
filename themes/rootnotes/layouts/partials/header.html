@@ -1,6 +1,9 @@
 <header class="site-header">
   <div class="header-inner">
-    <a href="{{ "/" | relURL }}" class="site-title">{{ .Site.Title }}</a>
+    <a href="{{ .Site.Home.RelPermalink }}" class="site-brand" aria-label="Rootnotes home">
+      <img src="{{ "images/logo.png" | relURL }}" alt="Rootnotes logo" class="site-logo">
+      <span class="site-title">{{ .Site.Title }}</span>
+    </a>
     <nav aria-label="Hoofdnavigatie">
       <ul class="site-nav">
         {{- range .Site.Menus.main }}
