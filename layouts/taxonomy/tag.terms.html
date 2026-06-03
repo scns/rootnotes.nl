@@ -8,7 +8,7 @@
     {{ end }}
 
     {{ if .Data.Terms }}
-      <div class="tags-cloud" role="list" aria-label="Tag cloud">
+      <ul class="tags-cloud" aria-label="Tag cloud">
         {{ $type := .Type }}
         {{ range .Data.Terms.Alphabetical }}
           {{ $name := .Name }}
@@ -25,13 +25,15 @@
           {{ end }}
 
           {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
-            <a class="tag-cloud-item {{ $sizeClass }}" role="listitem" href="{{ .Permalink }}" title="{{ $count }} artikel(en)">
-              <span class="tag-cloud-name">{{ .Name }}</span>
-              <span class="tag-cloud-count">{{ $count }}</span>
-            </a>
+            <li>
+              <a class="tag-cloud-item {{ $sizeClass }}" href="{{ .Permalink }}" title="{{ $count }} artikel(en)">
+                <span class="tag-cloud-name">{{ .Name }}</span>
+                <span class="tag-cloud-count">{{ $count }}</span>
+              </a>
+            </li>
           {{ end }}
         {{ end }}
-      </div>
+      </ul>
     {{ else }}
       <p>Nog geen tags beschikbaar.</p>
     {{ end }}
