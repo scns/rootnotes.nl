@@ -62,8 +62,8 @@
   display: block;
   height: auto;
   width: auto;
-  max-height: 56px;
-  max-width: 240px;
+  max-height: clamp(64px, 8vw, 92px);
+  max-width: min(300px, 56vw);
   border: 0 !important;
   padding: 0 !important;
   border-radius: 0 !important;
@@ -78,8 +78,8 @@
   display: block;
   width: auto !important;
   height: auto !important;
-  max-height: 56px !important;
-  max-width: min(240px, 42vw) !important;
+  max-height: clamp(64px, 8vw, 92px) !important;
+  max-width: min(300px, 56vw) !important;
   border: 0 !important;
   padding: 0 !important;
   border-radius: 0 !important;
