@@ -1,0 +1,20 @@
+language: nl
+
+reviews:
+  profile: chill
+  high_level_summary: true
+  review_status: true
+  commit_status: true
+  collapse_walkthrough: true
+
+  # Auto-review all non-draft PR updates.
+  auto_review:
+    enabled: true
+    drafts: false
+
+  # Skip generated/vendor files to keep feedback focused on source content.
+  path_filters:
+    - "!public/**"
+    - "!themes/**/exampleSite/**"
+    - "!**/*.min.css"
+    - "!**/*.min.js"
