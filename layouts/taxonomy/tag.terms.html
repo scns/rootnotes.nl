@@ -1,0 +1,39 @@
+{{ define "main" }}
+  <div class="terms tags-cloud-page">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="index-content">
+        {{ . }}
+      </div>
+    {{ end }}
+
+    {{ if .Data.Terms }}
+      <div class="tags-cloud" role="list" aria-label="Tag cloud">
+        {{ $type := .Type }}
+        {{ range .Data.Terms.Alphabetical }}
+          {{ $name := .Name }}
+          {{ $count := .Count }}
+          {{ $sizeClass := "tag-size-1" }}
+          {{ if ge $count 8 }}
+            {{ $sizeClass = "tag-size-5" }}
+          {{ else if ge $count 5 }}
+            {{ $sizeClass = "tag-size-4" }}
+          {{ else if ge $count 3 }}
+            {{ $sizeClass = "tag-size-3" }}
+          {{ else if ge $count 2 }}
+            {{ $sizeClass = "tag-size-2" }}
+          {{ end }}
+
+          {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+            <a class="tag-cloud-item {{ $sizeClass }}" role="listitem" href="{{ .Permalink }}" title="{{ $count }} artikel(en)">
+              <span class="tag-cloud-name">{{ .Name }}</span>
+              <span class="tag-cloud-count">{{ $count }}</span>
+            </a>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ else }}
+      <p>Nog geen tags beschikbaar.</p>
+    {{ end }}
+  </div>
+{{ end }}

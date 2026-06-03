@@ -26,7 +26,7 @@ enableGitInfo = true
   buymeacoffee_alt = "Buy Me A Coffee"
   contentTypeName = 'posts'
   themeColor = 'orange'
-  showMenuItems = 5
+  showMenuItems = 6
   fullWidthTheme = false
   centerTheme = true
   showLastUpdated = true
@@ -66,6 +66,10 @@ enableGitInfo = true
     name   = "Categorieen"
     url    = "/categories"
     weight = 5
+  [[menu.main]]
+    name   = "Tags"
+    url    = "/tags"
+    weight = 6
 
 [markup]
   [markup.highlight]
