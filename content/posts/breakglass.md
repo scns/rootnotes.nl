@@ -8,7 +8,7 @@ categories = ["Waarom", "Microsoft365", "Entra"]
 
 
 
-### Terug naar de kern van IT
+## Terug naar de kern van IT
 
 Wanneer organisaties hun beveiliging verbeteren met Multi-Factor Authentication (MFA), Conditional Access, Privileged Identity Management (PIM) en Zero Trust-principes, ontstaat er een nieuwe uitdaging: wat gebeurt er als beheerders zichzelf buitensluiten?
 
