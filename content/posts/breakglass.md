@@ -2,7 +2,7 @@
 title = "Waarom iedere Microsoft 365-omgeving een Break Glass-account nodig heeft"
 date = 2026-06-04
 description = "Waarom een Break Glass-account essentieel is voor Microsoft 365 en Entra ID. Ontdek wanneer je een noodaccount nodig hebt, welke beveiligingseisen gelden en hoe je voorkomt dat beheerders zichzelf buitensluiten."
-tags = ["Microsoft365", "Entra", "Breakglass", "giscus", "opensource"]
+tags = ["microsoft365", "entra-id", "breakglass", "beveiliging"]
 categories = ["Waarom", "Microsoft365", "Entra"]
 +++
 
