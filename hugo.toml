@@ -2,7 +2,8 @@ baseURL = 'https://rootnotes.nl/'
 defaultContentLanguage = 'nl'
 title = 'RootNotes'
 theme = 'terminal'
-paginate = 10
+[pagination]
+  pagerSize = 10
 enableRobotsTXT = true
 enableGitInfo = true
 
