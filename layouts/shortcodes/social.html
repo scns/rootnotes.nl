@@ -1,0 +1,11 @@
+{{- $src := .Get "src" -}}
+{{- $href := .Get "href" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $width := .Get "width" | default "36" -}}
+{{- $isRemote := or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+
+<a href="{{ $href }}" target="_blank" rel="noopener noreferrer" title="{{ $alt }}" class="social-link" style="text-decoration:none;border:0;box-shadow:none;padding:0;margin:0;display:inline-block;">
+  <span class="social-link__inner" style="display:inline-block;line-height:0;margin:0;padding:0;margin-right:12px;">
+    <img src="{{ if $isRemote }}{{ $src }}{{ else }}{{ $src | relURL }}{{ end }}" alt="{{ $alt }}" width="{{ $width }}" height="{{ $width }}" loading="lazy" style="display:inline-block;vertical-align:middle;border:0;background:transparent;box-shadow:none;padding:0;margin:0;" />
+  </span>
+</a>

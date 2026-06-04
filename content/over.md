@@ -8,6 +8,10 @@ description: "Wie schrijft hier en waarom?"
 
 {{< sideimage src="/images/me.jpg" alt="Maarten" align="right" width="260px" >}}
 
+{{< social src="/images/linkedin.png" href="https://www.linkedin.com/in/maartenschmeitz/" alt="Maarten Schmeitz | LinkedIn" width="64" >}}{{< social src="/images/microsoft.png" href="https://learn.microsoft.com/nl-nl/users/schmeitz/transcript/d4kr0c5305q3p4q" alt="Maarten Schmeitz | LinkedIn" width="64" >}}
+
+
+
 Mijn naam is Maarten Schmeitz en ik werk dagelijks op het snijvlak van moderne werkplekken, cloudtechnologie en IT-infrastructuur. Met een passie voor techniek en een sterke focus op praktijkgerichte oplossingen help ik organisaties bij het ontwerpen, beheren en optimaliseren van hun IT-omgeving.
 
 Door de jaren heen heb ik ervaring opgebouwd binnen verschillende disciplines van de IT, waaronder Microsoft 365, Entra ID, Intune, Azure, security, endpoint management en systeembeheer. Daarbij ligt mijn interesse niet alleen bij het implementeren van technologie, maar vooral bij het begrijpen van de onderliggende processen en architectuur. Waarom werkt iets zoals het werkt? Hoe kan het beter? En hoe zorgen we ervoor dat technologie daadwerkelijk waarde toevoegt?
