@@ -1,13 +1,62 @@
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" | default "" -}}
-{{- $caption := .Get "caption" -}}
+{{- $caption := .Get "caption" | default "" -}}
 {{- $align := .Get "align" | default "left" -}}
 {{- $width := .Get "width" | default "240px" -}}
 {{- $isRemote := or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+{{- $imgSrc := cond $isRemote $src ($src | relURL) -}}
 
 <figure class="side-image side-image--{{ if eq $align "right" }}right{{ else }}left{{ end }}" style="--side-image-width: {{ $width }};">
-  <img src="{{ if $isRemote }}{{ $src }}{{ else }}{{ $src | relURL }}{{ end }}" alt="{{ $alt }}" loading="lazy">
+  <a href="#" class="side-image__link" data-src="{{ $imgSrc }}" data-caption="{{ $caption }}">
+    <img src="{{ $imgSrc }}" alt="{{ $alt }}" loading="lazy">
+  </a>
   {{ with $caption }}
     <figcaption>{{ . }}</figcaption>
   {{ end }}
 </figure>
+
+<style>
+/* Side-image overlay styles (minimal, safe to include per-shortcode) */
+#sideimage-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;pointer-events:none;transition:opacity .2s ease}
+#sideimage-overlay.open{opacity:1;pointer-events:auto}
+#sideimage-overlay img{max-width:90%;max-height:80%;box-shadow:0 10px 40px rgba(0,0,0,.6);border-radius:6px}
+#sideimage-overlay .side-image__meta{color:#fff;margin-top:12px;text-align:center;font-size:0.95rem}
+#sideimage-overlay .side-image__close{position:absolute;top:18px;right:20px;color:#fff;background:transparent;border:0;font-size:28px;cursor:pointer}
+#sideimage-overlay .side-image__inner{display:flex;flex-direction:column;align-items:center;gap:8px}
+</style>
+
+<script>
+;(function(){
+  if (window.__sideImageOverlayInitialized) return; window.__sideImageOverlayInitialized = true;
+
+  function createOverlay(){
+    var overlay = document.createElement('div'); overlay.id = 'sideimage-overlay';
+    overlay.innerHTML = '<button class="side-image__close" aria-label="Sluit">×</button><div class="side-image__inner"><img alt="" /><div class="side-image__meta"></div></div>';
+    document.body.appendChild(overlay);
+
+    var img = overlay.querySelector('img');
+    var meta = overlay.querySelector('.side-image__meta');
+    var closeBtn = overlay.querySelector('.side-image__close');
+
+    function open(src, caption){ img.src = src; img.alt = caption || ''; meta.textContent = caption || ''; overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function close(){ overlay.classList.remove('open'); img.src = ''; meta.textContent = ''; document.body.style.overflow = ''; }
+
+    overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
+    closeBtn.addEventListener('click', close);
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+
+    return { open: open, close: close };
+  }
+
+  var overlayApi = createOverlay();
+
+  document.addEventListener('click', function(e){
+    var link = e.target.closest && e.target.closest('.side-image__link');
+    if (!link) return;
+    e.preventDefault();
+    var src = link.getAttribute('data-src');
+    var caption = link.getAttribute('data-caption') || '';
+    overlayApi.open(src, caption);
+  });
+})();
+</script>
