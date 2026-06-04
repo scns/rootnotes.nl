@@ -37,7 +37,7 @@ enableGitInfo = true
   # Stap 1: Schakel GitHub Discussions in op je repo (Settings → Features)
   # Stap 2: Installeer de Giscus app: https://github.com/apps/giscus
   # Stap 3: Ga naar https://giscus.app, selecteer je repo en kopieer
-  #         de waarden hieronder in.
+  #         de waarden hieronder in..
   # ──────────────────────────────────────────────────────────────────
   [params.giscus]
     repo        = "scns/rootnotes.nl"
