@@ -6,11 +6,16 @@
   {{ end }}
 
   <div class="posts">
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") 10 }}
+    {{ $items := where .Site.RegularPages "Type" "in" (slice "posts" "scripts") }}
+    {{ $paginator := .Paginate $items 10 }}
     {{ range $paginator.Pages }}
       <article class="post on-list">
         <h2 class="post-title">
-          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+          {{ if eq .Type "scripts" }}
+            <a href="{{ .Permalink }}">SCRIPT: {{ .Title | markdownify }}</a>
+          {{ else }}
+            <a href="{{ .Permalink }}">BLOG: {{ .Title | markdownify }}</a>
+          {{ end }}
         </h2>
         <div class="post-meta">
           {{- if .Date -}}
