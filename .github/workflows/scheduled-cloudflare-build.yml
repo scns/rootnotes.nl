@@ -1,0 +1,14 @@
+name: Scheduled Cloudflare Pages build
+
+on:
+  schedule:
+    # Elke dag om 10:00 Nederlandse wintertijd / 11:00 zomertijd afhankelijk van UTC
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+jobs:
+  trigger-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages deploy hook
+        run: curl -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
