@@ -6,7 +6,7 @@ tags = ["microsoft365", "entra-id", "breakglass", "beveiliging"]
 categories = ["Waarom", "Microsoft365", "Entra"]
 +++
 
-## Waarom iedere Microsoft 365-omgeving een Break Glass-account nodig heeft
+
 
 ### Terug naar de kern van IT
 
