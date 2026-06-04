@@ -83,7 +83,7 @@ Cloudflare Pages is een platform voor statische websites en werkt uitstekend voo
 
 Daarnaast is een eigen domeinnaam gekoppeld in Cloudflare, waardoor de site bereikbaar is via:
 
-```
+```url
 https://rootnotes.nl
 ```
 
