@@ -23,12 +23,13 @@ export async function onRequest(context) {
       const text = await insertRes.text();
       // If conflict (duplicate), return 200 with message
       if (insertRes.status === 409) return new Response(JSON.stringify({ ok: true, message: 'Already subscribed' }), { status: 200, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
-      return new Response(text, { status: insertRes.status, headers: cors() });
+      return new Response(JSON.stringify({ error: text }), { status: insertRes.status, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
     }
 
     return new Response(JSON.stringify({ ok: true }), { status: 200, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
   } catch (err) {
-    return new Response(String(err), { status: 500, headers: cors() });
+    const text = (err && err.message) ? err.message : String(err);
+    return new Response(JSON.stringify({ error: text }), { status: 500, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
   }
 }
 

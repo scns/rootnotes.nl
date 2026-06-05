@@ -21,7 +21,7 @@ export async function onRequest(context) {
 
       if (!insertRes.ok) {
         const text = await insertRes.text();
-        return new Response(text, { status: insertRes.status, headers: cors() });
+        return new Response(JSON.stringify({ error: text }), { status: insertRes.status, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
       }
 
       // Fetch count
@@ -56,7 +56,8 @@ export async function onRequest(context) {
 
     return new Response('Method not allowed', { status: 405, headers: cors() });
   } catch (err) {
-    return new Response(String(err), { status: 500, headers: cors() });
+    const text = (err && err.message) ? err.message : String(err);
+    return new Response(JSON.stringify({ error: text }), { status: 500, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
   }
 }
 
