@@ -82,3 +82,6 @@ enableGitInfo = true
 [outputs]
   home    = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
+
+[params.supabase]
+  url = "https://mhdcvasqdbeuawxfkfew.supabase.co"
