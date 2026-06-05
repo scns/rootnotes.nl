@@ -1,5 +1,8 @@
 export async function onRequest(context) {
   const { request, env } = context;
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE) {
+    return new Response(JSON.stringify({ error: 'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE in environment' }), { status: 500, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
+  }
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors() });
   try {
     if (request.method !== 'POST') return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
