@@ -1,0 +1,96 @@
+{{/*
+Supabase PoC partial
+
+Usage:
+- Set site params in `config.toml` (or provide env vars and render into templates):
+  [params.supabase]
+    url = "https://your-project-ref.supabase.co"
+    anon_key = "public-anon-key"
+
+This partial will read from params if available. For production keep the anon key restricted with RLS.
+*/}}
+
+{{ $supabaseURL := .Site.Params.supabase.url | default "" }}
+{{ $supabaseKey := .Site.Params.supabase.anon_key | default "" }}
+
+<div class="supabase-poc" aria-live="polite" style="margin-top:1.25rem;padding:12px 0;border-top:1px solid rgba(255,255,255,0.04);">
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <div id="like-area-{{ .File.Path | urlize }}" data-slug="{{ .File.Path | urlize }}">
+      <button class="like-button" aria-pressed="false" style="padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;">👍 <span class="like-count">…</span></button>
+    </div>
+
+    <form id="subscribe-form-{{ .File.Path | urlize }}" style="display:flex;gap:8px;align-items:center">
+      <label for="sub-email-{{ .File.Path | urlize }}" style="font-size:0.95rem;">Schrijf je in:</label>
+      <input id="sub-email-{{ .File.Path | urlize }}" type="email" placeholder="e-mail" required style="padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit">
+      <button type="submit" style="padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;">Abonneer</button>
+      <div class="sub-msg" style="margin-left:8px;font-size:0.9rem;color:inherit"></div>
+    </form>
+  </div>
+
+  <script>
+  (function(){
+    // Production uses serverless proxy endpoints to avoid exposing service keys
+    function proxy(endpoint, opts){
+      opts = opts || {};
+      return fetch(endpoint, opts).then(function(r){
+        if (!r.ok) return r.text().then(function(t){ throw new Error(t || r.status); });
+        var ct = r.headers.get('content-type') || '';
+        if (ct.indexOf('application/json') !== -1) return r.json();
+        return r.text();
+      });
+    }
+
+    // Likes
+    var likeArea = document.querySelector('[id^="like-area-"]');
+    if (likeArea){
+      var slug = likeArea.getAttribute('data-slug');
+      var btn = likeArea.querySelector('.like-button');
+      var countSpan = likeArea.querySelector('.like-count');
+
+      function updateCount(){
+        proxy('/api/like?slug=' + encodeURIComponent(slug), { method: 'GET' }).then(function(res){
+          var count = res && res.likes ? res.likes : 0;
+          countSpan.textContent = count;
+        }).catch(function(err){ console.warn('count fetch failed', err); countSpan.textContent = '—'; });
+      }
+
+      updateCount();
+
+      btn.addEventListener('click', function(){
+        if (localStorage.getItem('liked:' + slug)) return; // simple client-side guard
+        btn.disabled = true;
+        proxy('/api/like', { method: 'POST', body: JSON.stringify({ slug: slug }), headers: { 'Content-Type': 'application/json' } }).then(function(resp){
+          localStorage.setItem('liked:' + slug, '1');
+          updateCount();
+          btn.setAttribute('aria-pressed','true');
+          btn.disabled = false;
+        }).catch(function(err){ console.error('like failed', err); btn.disabled = false; alert('Like kon niet worden verwerkt'); });
+      });
+    }
+
+    // Subscribe
+    var form = document.querySelector('[id^="subscribe-form-"]');
+    if (form){
+      var input = form.querySelector('input[type="email"]');
+      var msg = form.querySelector('.sub-msg');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var email = (input.value || '').trim();
+        if (!email) return;
+        form.querySelector('button[type="submit"]').disabled = true;
+        proxy('/api/subscribe', { method: 'POST', body: JSON.stringify({ email: email }), headers: { 'Content-Type': 'application/json' } }).then(function(resp){
+          msg.textContent = 'Bedankt — je bent ingeschreven!';
+          input.value = '';
+          setTimeout(function(){ msg.textContent = ''; },3000);
+          form.querySelector('button[type="submit"]').disabled = false;
+        }).catch(function(err){
+          console.error('subscribe failed', err);
+          msg.textContent = 'Kon niet inschrijven (misschien al ingeschreven)';
+          form.querySelector('button[type="submit"]').disabled = false;
+        });
+      });
+    }
+
+  })();
+  </script>
+</div>
