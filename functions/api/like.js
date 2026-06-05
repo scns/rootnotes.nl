@@ -5,7 +5,7 @@ export async function onRequest(context) {
     if (request.method === 'POST') {
       const body = await request.json();
       const slug = body.slug;
-      if (!slug) return new Response('Missing slug', { status: 400, headers: cors() });
+      if (!slug) return new Response(JSON.stringify({ error: 'Missing slug' }), { status: 400, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
 
       // Insert like
       const insertRes = await fetch(`${env.SUPABASE_URL.replace(/\/$/, '')}/rest/v1/likes`, {
@@ -40,7 +40,7 @@ export async function onRequest(context) {
     if (request.method === 'GET') {
       const url = new URL(request.url);
       const slug = url.searchParams.get('slug');
-      if (!slug) return new Response('Missing slug', { status: 400, headers: cors() });
+      if (!slug) return new Response(JSON.stringify({ error: 'Missing slug' }), { status: 400, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
 
       const countRes = await fetch(`${env.SUPABASE_URL.replace(/\/$/, '')}/rest/v1/likes?slug=eq.${encodeURIComponent(slug)}&select=slug`, {
         method: 'GET',
@@ -54,7 +54,7 @@ export async function onRequest(context) {
       return new Response(JSON.stringify({ likes: cnt }), { status: 200, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
     }
 
-    return new Response('Method not allowed', { status: 405, headers: cors() });
+    return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
   } catch (err) {
     const text = (err && err.message) ? err.message : String(err);
     return new Response(JSON.stringify({ error: text }), { status: 500, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });

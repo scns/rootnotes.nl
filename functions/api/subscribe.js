@@ -2,10 +2,10 @@ export async function onRequest(context) {
   const { request, env } = context;
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors() });
   try {
-    if (request.method !== 'POST') return new Response('Method not allowed', { status: 405, headers: cors() });
+    if (request.method !== 'POST') return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
     const body = await request.json();
     const email = (body.email || '').trim();
-    if (!email) return new Response('Missing email', { status: 400, headers: cors() });
+    if (!email) return new Response(JSON.stringify({ error: 'Missing email' }), { status: 400, headers: Object.assign({ 'Content-Type': 'application/json' }, cors()) });
 
     // Insert subscriber (unique constraint in DB will prevent duplicates)
     const insertRes = await fetch(`${env.SUPABASE_URL.replace(/\/$/, '')}/rest/v1/subscribers`, {
