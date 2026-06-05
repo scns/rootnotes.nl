@@ -8,7 +8,7 @@ categories = ["Security"]
 
 ## Waarom antivirus alleen niet meer voldoende is
 
-{{< sideimage src="/images/asr.png" alt="asr" align="right" width="260px" >}}
+{{< sideimage src="/images/asr.png" alt="Microsoft Defender Attack Surface Reduction illustratie" align="right" width="260px" >}}
 
 Wanneer we denken aan endpointbeveiliging denken veel mensen nog steeds aan antivirussoftware.
 
